@@ -39,7 +39,6 @@ export default function Home() {
   )
 }
 
-
 export const getServerSideProps = (ctx) => {
   // the ctx locale will be extracted in the login function for the auth0 language paramater needed  
   const returnTo = `${process.env.AUTH0_BASE_URL}/${ctx.locale}${ctx.resolvedUrl}`;

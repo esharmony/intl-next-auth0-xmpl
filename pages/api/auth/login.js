@@ -1,11 +1,8 @@
 import { handleLogin } from '@auth0/nextjs-auth0';
 
-
-
 export default async function login(req, res) {
 
   const allowedLocales = ['en', 'pl'];
-
   let lang = 'en';
   let returnTo = '/';
   // check to see if the lang is not passed directly first ( as this can be done on login button)
@@ -19,7 +16,6 @@ export default async function login(req, res) {
       if(allowedLocales.includes(locale)) lang = locale;
     }
   }
-
   try {
     await handleLogin(req, res, {
       authorizationParams: {
