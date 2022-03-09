@@ -1,34 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Purpose 
+
+This is a running version of internationalised app including the internationlisation of the Auth0 login modal and process.
+
+Disclaimer: At this point it contains a bit of a hack of the returnUrl to provide a language parameter needed for the Auth0 client to select the language.
+The only language available in the demo is PL. but adding more languages is no issue
 
 ## Getting Started
 
-First, run the development server:
+1. You need an Auth0 account and client
+2. You need to configure your auth0 client to allow your chosen languages, for this repo PL must be checked. Yo do this in the auth0 portal -> settings - languages 
+3. You must add the setting below in the portal found in branding -> customise login: 
+
+```
+// around line 35 or anywhere that you can pic up the config 
+// this will now use our selection passed from the front end and change tha language of the modal 
+
+if(config.extraParams.language) language = config.extraParams.language;
+
+```
+
+4. you must set up a .env.local containing these parameters 
+
+AUTH0_SECRET='yourauth0secret'
+AUTH0_BASE_URL='http://localhost:3000'
+AUTH0_ISSUER_BASE_URL='yourauth0issuerbaseurl'
+AUTH0_CLIENT_ID='yourauth0clientid'
+AUTH0_CLIENT_SECRET='yourauth0clientsecret'
+NEXT_PUBLIC_AUTH0_LOGIN=http://localhost:3000/api/auth/login
+
+the NEXT_PUBLIC_AUTH0_LOGIN will force the loginUrl to ignore the internationlisation part of the url
+
+run the development server:
 
 ```bash
-npm run dev
-# or
 yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

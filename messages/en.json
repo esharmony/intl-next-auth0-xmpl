@@ -1,0 +1,15 @@
+{
+  "Translations": {
+    "create":"Create Next App",
+    "welcome": "Welcome to",
+    "started": "Get started by editing",
+    "protected": "Go to the protected page",
+    "protectedTitle": "the protected page",
+    "indexPage": "Go to the index page"
+  },
+  "Auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "welcome":"Welcome"
+  }
+}

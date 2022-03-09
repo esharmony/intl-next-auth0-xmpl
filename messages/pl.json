@@ -1,0 +1,15 @@
+{
+  "Translations": {
+    "create": "Utwórz aplikację Next",
+    "welcome": "Witamy w",
+    "started": "Zacznij od edycji",
+    "protected": "Przejdź do chronionej strony",
+    "protectedTitle": "chroniona strona",
+    "indexPage": "Przejdź do strony indeksu"
+  },
+  "Auth": {
+    "login": "Zaloguj sie",
+    "logout": "Wyloguj",
+    "welcome":"Witamy"
+  }
+}
